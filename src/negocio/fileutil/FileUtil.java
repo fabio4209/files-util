@@ -18,7 +18,7 @@ public class FileUtil {
 			criarArquivo(NOME_COMPLETO_ARQUIVO);
 		}
 		
-		//TODO: escreverNoArquivo(NOME_COMPLETO_ARQUIVO);
+		escreverNoArquivo(NOME_COMPLETO_ARQUIVO);
 		//criarArquivoSeNaoExiste(NOME_COMPLETO_ARQUIVO);
 	}
 	
@@ -47,8 +47,17 @@ public class FileUtil {
 		}
 	}
 	
-	public static void escreverNoArquivo(){
-		Path arquivo = Paths.get(nomeCompletoArquivo);
+	public static void escreverNoArquivo(String nomeArquivo){
+		Path arquivo = Paths.get(nomeArquivo);
+		String texto = "to be or not to be";
+		try {
+			Files.write(arquivo, texto.getBytes());
+		}
+		catch (Exception e){
+			e.printStackTrace();
+		}
+		
+		
 		
 	}
 	
