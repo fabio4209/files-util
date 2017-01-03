@@ -9,41 +9,48 @@ import java.io.FileWriter;
 public class FileUtil {
 
 	private static final String 
-		NOME_COMPLETO_ARQUIVO = ".\\arqTeste.txt";
+		NOME_COMPLETO_ARQUIVO = ".\\arqTextoGerado.txt";
 
 	public static void main(String[] args) throws IOException{
-		if (!ArquivoExiste(NOME_COMPLETO_ARQUIVO)){
+		
+		if (ArquivoNaoExiste(NOME_COMPLETO_ARQUIVO)){
 			System.out.println("Arquivo ainda não existe");
 			criarArquivo(NOME_COMPLETO_ARQUIVO);
 		}
+		
 		//TODO: escreverNoArquivo(NOME_COMPLETO_ARQUIVO);
 		//criarArquivoSeNaoExiste(NOME_COMPLETO_ARQUIVO);
 	}
 	
 	//Path Operations: https://goo.gl/R8IcMu
-	public static boolean ArquivoExiste(String nomeArquivo){
+	public static boolean ArquivoNaoExiste(String nomeArquivo){
 		Path arquivo = Paths.get(nomeArquivo);
 		if (Files.notExists(arquivo)){
-			return false;
+			return true;
 		}
 		else {
-			return true;
+			return false;
 		}
 		
 	}
 	
-	public static Path criarArquivo(String nomeArquivo){
+	//Descrição: Cria um arquivo vazio
+	public static void criarArquivo(String nomeArquivo){
 		Path arquivo = Paths.get(nomeArquivo);
 		
 		try {
 			//Files é uma helper class
-			return Files.createFile(arquivo);
+			Files.createFile(arquivo);
+			
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
 	
-	
+	public static void escreverNoArquivo(){
+		Path arquivo = Paths.get(nomeCompletoArquivo);
+		
+	}
 	
 	/**
 	 * @throws IOException
