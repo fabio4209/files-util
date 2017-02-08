@@ -24,7 +24,7 @@ public class FileUtil {
 	}
 	
 	public static void leArquivo(){
-		Charset charset = Charset.forName("ISO-8859-1");
+		Charset charset = Charset.forName("UTF-8");
 		
 		Path arquivo = Paths.get(".\\246611_unico.txt");
 		
